@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">Sonraki</string>
+    <string name="skip">Geç</string>
+    <string name="start">Anladım</string>
+    <string name="slide_1_title">Gelsin Yemekler!</string>
+    <string name="slide_1_desc">En sevdiğiniz lokantadan yemek sipariş etmenin en kolay yolu!</string>
+    <string name="slide_2_title">Sinema Biletleri</string>
+    <string name="slide_2_desc">Aileniz ve arkadaşlarınız için sinema bileti ayırtın!</string>
+    <string name="slide_3_title">Muhteşem Tenzilat!</string>
+    <string name="slide_3_desc">Sunduğumuz her hizmette en iyi tenzilat oranlarına sahip olun!</string>
+    <string name="slide_4_title">Devr-i Âlem</string>
+    <string name="slide_4_desc">İstediğiniz bir vasıtanın biletlerini ayırtın ve dünyayı gezin!</string>
+    <string name="notificationTitle">Muharrir.net\'e göz atın!</string>
+    <string name="clickToRedirect">Buraya tıklayınca otomatik yönlendirileceksiniz!</string>
+    <string name="title_activity_welcome">Ana Ekran</string>
+    <string name="play_again">Tekrar Oynat</string>
+    <string name="getBackToIntro">Sihirli Vakalar İçin Bildirim Oluşturun!</string>
+    <string name="play_again_desc">Böyle bişi yok olm, bu ne lan</string>
+    <string name="changeLang">Uygulama Dilini İngilizceye Çevir!</string>
+    <string name="justTest">Bu yalnızca test maksatlıdır.</string>
+</resources>
