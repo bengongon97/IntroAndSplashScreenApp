@@ -32,6 +32,13 @@
  <string name="changeLang">Change the App Language to Turkish!</string>
  <string name="justTest">This is intended for test purposes only.</string>
 
- -
+ <string name="popUp">Create Pop Up!</string>
+
+ <string name="titlePopup">We gotta ask!</string>
+ <string name="messagePopup">Were you really the one who wanted to open this dialog?</string>
+
+ <string name="reallyToast">Really? You\'ve gotta be kidding!</string>
+ <string name="goodToast">Oh, good then!</string>
+
 </resources>
 

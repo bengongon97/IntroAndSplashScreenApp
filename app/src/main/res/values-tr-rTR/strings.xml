@@ -19,4 +19,9 @@
     <string name="play_again_desc">Böyle bişi yok olm, bu ne lan</string>
     <string name="changeLang">Uygulama Dilini İngilizceye Çevir!</string>
     <string name="justTest">Bu yalnızca test maksatlıdır.</string>
+    <string name="popUp">Açılır Pencere Oluştur!</string>
+    <string name="titlePopup">Bunu sormamız lazım!</string>
+    <string name="messagePopup">Bu pencereyi açmak isteyen gerçekten siz miydiniz?</string>
+    <string name="reallyToast">Gerçekten mi? Şaka falan olmalı bu!</string>
+    <string name="goodToast">Hah, öyleyse iyi!</string>
 </resources>
