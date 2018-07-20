@@ -26,4 +26,6 @@
     <string name="goodToast">Hah, öyleyse iyi!</string>
     <string name="yes">Evet</string>
     <string name="no">Hayır</string>
+    <string name="versionNotFound">Sürüm bilgisi bulunamadı.</string>
+    <string name="versionText">Uygulama Sürümü</string>
 </resources>

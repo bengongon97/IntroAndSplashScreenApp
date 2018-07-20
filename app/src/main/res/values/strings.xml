@@ -43,5 +43,8 @@
  <string name="yes">Yes</string>
  <string name="no">No</string>
 
+ <string name="versionNotFound">Version information cannot be found.</string>
+ <string name="versionText">App Version:</string>
+
 </resources>
 
