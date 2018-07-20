@@ -40,5 +40,8 @@
  <string name="reallyToast">Really? You\'ve gotta be kidding!</string>
  <string name="goodToast">Oh, good then!</string>
 
+ <string name="yes">Yes</string>
+ <string name="no">No</string>
+
 </resources>
 

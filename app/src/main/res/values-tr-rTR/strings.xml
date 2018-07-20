@@ -24,4 +24,6 @@
     <string name="messagePopup">Bu pencereyi açmak isteyen gerçekten siz miydiniz?</string>
     <string name="reallyToast">Gerçekten mi? Şaka falan olmalı bu!</string>
     <string name="goodToast">Hah, öyleyse iyi!</string>
+    <string name="yes">Evet</string>
+    <string name="no">Hayır</string>
 </resources>

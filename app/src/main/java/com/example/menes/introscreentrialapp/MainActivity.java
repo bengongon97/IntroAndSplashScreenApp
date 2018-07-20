@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 builder.setTitle(getString(R.string.titlePopup));
                 builder.setMessage(getString(R.string.messagePopup));
 
-                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(MainActivity.this, getString(R.string.goodToast),Toast.LENGTH_LONG).show();
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
