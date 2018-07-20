@@ -12,6 +12,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.ContextCompat;
@@ -22,6 +23,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.nio.channels.Channel;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "Some channel name";
+            CharSequence name = "Notifications channel?";
             String description = "Some channel description";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
@@ -44,11 +46,38 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void showBottomSheetDialog (String titleString, String detailString) {
+        final View bottomSheetLayout = getLayoutInflater().inflate(R.layout.bottom_sheet_dialog, null);
+        (bottomSheetLayout.findViewById(R.id.button_close)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mBottomSheetDialog.dismiss();
+            }
+        });
+        TextView title = bottomSheetLayout.findViewById(R.id.tv_title);
+        TextView detail = bottomSheetLayout.findViewById(R.id.tv_detail);
+
+        title.setText(titleString);
+        detail.setText(detailString);
+
+        (bottomSheetLayout.findViewById(R.id.button_ok)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mBottomSheetDialog.dismiss();
+            }
+        });
+
+        mBottomSheetDialog = new BottomSheetDialog(MainActivity.this);
+        mBottomSheetDialog.setContentView(bottomSheetLayout);
+        mBottomSheetDialog.show();
+    }
+
+    private BottomSheetDialog mBottomSheetDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
 
         Button notifyButton = findViewById(R.id.notifyButton);
@@ -91,8 +120,6 @@ public class MainActivity extends AppCompatActivity {
         Button langButton = findViewById(R.id.langButton);
 
 
-
-
         langButton.setOnClickListener(new View.OnClickListener() {
 
 
@@ -133,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+               AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
                 builder.setTitle(getString(R.string.titlePopup));
                 builder.setMessage(getString(R.string.messagePopup));
@@ -171,11 +198,53 @@ public class MainActivity extends AppCompatActivity {
 
         } catch (PackageManager.NameNotFoundException e) {
             TextView versionText = findViewById(R.id.versionText);
-            versionText.setText("");
+            versionText.setText(R.string.versionNotFound);
             e.printStackTrace();
         }
 
 
+        View bottomSheet = findViewById(R.id.framelayout_bottom_sheet);
+
+        Button gameButton = findViewById(R.id.lilGameButton);
+
+        gameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String[] singleChoiceItems = getResources().getStringArray(R.array.dialog_single_choice_array);
+                int itemSelected = 0;
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("Birisi size yanlış yapsa:")
+                        .setSingleChoiceItems(singleChoiceItems, itemSelected, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int selectedIndex) {
+                                String title;
+                                String detail;
+                                switch(selectedIndex) {
+                                    case 0:
+                                        title = "Helal beee!";
+                                        detail = "Tebrikler! Herkes yapamaz...";
+                                        showBottomSheetDialog(title, detail);
+                                        break;
+                                    case 1:
+                                        title = "Hmm, tabii bir tepki!";
+                                        detail = "Normal bir insan da bunu yapardı herhalde...";
+                                        showBottomSheetDialog(title, detail);
+                                        break;
+                                    case 2:
+                                        title = "Yuh, öldüreydin ?!";
+                                        detail = "Abartma bee! Nabıyon, hayırdır?";
+                                        showBottomSheetDialog(title, detail);
+                                        break;
+                                }
+                            }
+                        })
+                        .setPositiveButton("Seç", null)
+                        .setNegativeButton("İptal", null)
+                        .show();
+            }
+
+
+        });
 
 
 

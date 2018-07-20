@@ -46,5 +46,11 @@
  <string name="versionNotFound">Version information cannot be found.</string>
  <string name="versionText">App Version:</string>
 
+    <string-array name="dialog_single_choice_array">
+        <item>Sessiz kalırım!</item>
+        <item>Sözlü uyarırım!</item>
+        <item>Ağız burun dalarım!</item>
+    </string-array>
+
 </resources>
 
