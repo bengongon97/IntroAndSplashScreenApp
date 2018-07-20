@@ -211,15 +211,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String[] singleChoiceItems = getResources().getStringArray(R.array.dialog_single_choice_array);
-                int itemSelected = 0;
+                final int itemSelected = 0;
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("Birisi size yanlış yapsa:")
-                        .setSingleChoiceItems(singleChoiceItems, itemSelected, new DialogInterface.OnClickListener() {
+                        .setSingleChoiceItems(singleChoiceItems, itemSelected, null)
+                        .setPositiveButton("Seç", new DialogInterface.OnClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialogInterface, int selectedIndex) {
+                            public void onClick(DialogInterface dialog, int which) {
                                 String title;
                                 String detail;
-                                switch(selectedIndex) {
+                                int selectedPosition = ((AlertDialog)dialog).getListView().getCheckedItemPosition();
+                                switch(selectedPosition) {
                                     case 0:
                                         title = "Helal beee!";
                                         detail = "Tebrikler! Herkes yapamaz...";
@@ -235,10 +237,13 @@ public class MainActivity extends AppCompatActivity {
                                         detail = "Abartma bee! Nabıyon, hayırdır?";
                                         showBottomSheetDialog(title, detail);
                                         break;
+                                    case -1:
+                                        Toast.makeText(MainActivity.this,"SOMETHING HAPPENED!", Toast.LENGTH_SHORT).show();
                                 }
+
+
                             }
                         })
-                        .setPositiveButton("Seç", null)
                         .setNegativeButton("İptal", null)
                         .show();
             }
